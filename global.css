@@ -17,6 +17,7 @@ a {
 
 .dFlex {
     display: flex;
+    align-items: center;
 }
 
 header {
@@ -45,6 +46,7 @@ header button {
 }
 
 footer {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.5rem;
@@ -53,6 +55,11 @@ footer {
 
 footer img {
     width: 30px;
+}
+
+.whpIcon {
+    width: 35px;
+    height: 33px;
 }
 
 footer .emails {

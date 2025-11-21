@@ -1,0 +1,13 @@
+body {}
+
+main {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+}

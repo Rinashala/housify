@@ -1,0 +1,31 @@
+.mainImg {
+    width: 85vw;
+    position: relative;
+
+}
+
+main {}
+
+.dscpCard {
+    bottom: 10vh;
+    right: 1vw;
+    background-color: white;
+    border-radius: 28px;
+    position: absolute;
+    width: 18rem;
+    height: 11.5rem;
+    padding: 1rem;
+}
+
+.dscpCard div {
+    justify-content: space-between;
+    padding-top: 5px;
+}
+
+.dscpCard div h3 {
+    color: #704431;
+}
+
+.dscpCard div p {
+    font-size: 12px;
+}
