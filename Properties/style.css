@@ -1,0 +1,18 @@
+body {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.propertyDscpCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 2.75rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.propertyDscpCard img {
+    width: 38vw;
+    border-radius: 20px;
+}

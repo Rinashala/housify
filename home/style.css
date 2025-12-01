@@ -1,18 +1,37 @@
-.mainImg {
-    width: 85vw;
-    position: relative;
+body {
+    height: 190vh;
+}
 
+.mainImg {
+    width: 75vw;
+    height: 91vh;
+    position: relative;
+    border-radius: 20px;
+}
+
+.welcomeCard {
+    padding: 2rem;
+}
+
+.welcomeCard p {
+    padding: 1rem 0 0 0;
+}
+
+.PropertiesCard {
+    padding: 2rem 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.PropertiesCard img {
+    width: 10vw;
 }
 
 .dscpCard {
-    bottom: 10vh;
-    right: 1vw;
-    background-color: white;
-    border-radius: 28px;
-    position: absolute;
+    padding: 2rem 0 1rem 0;
     width: 18rem;
     height: 11.5rem;
-    padding: 1rem;
 }
 
 .dscpCard div {
@@ -26,4 +45,34 @@
 
 .dscpCard div p {
     font-size: 12px;
+}
+
+.dscpCardTwo {
+    padding: 2rem 2rem 0.5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.learnMoreCard {
+    padding: 1rem 1rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 83vh;
+}
+
+.imgHeight80vh {
+    height: 78vh;
+}
+
+.imgHeight40vh {
+    height: 41vh;
+}
+
+.learnMoreCard img {
+    width: 32vw;
+    border-radius: 30px;
+}
+
+.secondPart {
+    height: 98vh;
 }
