@@ -1,6 +1,10 @@
 body {
-    height: 100vh;
-    overflow-y: hidden;
+    height: auto;
+}
+
+main {
+    height: auto;
+    min-height: calc(100vh - 150px);
 }
 
 .propertyDscpCard {

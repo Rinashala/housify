@@ -21,26 +21,100 @@
         <button class="customButton">CONTACT US</button>
     </header>
     <main>
-        <form class="">
-            <h1 class="titleShadow">LOG IN</h1>
-            <input type="text">
-            <input type="password">
-            <p>Don't have an account yet? <span><a href="">Resgister here.</a></span></p>
-            <button class="customButton">LOG IN</button>
+        <form id="logInForm">
+            <h1 class="">LOG IN</h1>
+            <span></span>
+            <input id="emailLogin" type="email" placeholder="Email" required>
+            <span id="emailLoginError" class="error"></span>
+            <input id="passwordLogin" type="password" placeholder="Password" required minlength="6">
+            <span id="passwordLoginError" class="error"></span>
 
+            <p class="fSize12px">Don't have an account yet? <span><a href="../Sign in/signIn.html">Register
+                        here.</a></span></p>
+            <button type="submit" class="customButton">LOG IN</button>
         </form>
+
     </main>
-    <footer>
-        <div>
-            <a href=""><img class="whpIcon" src="../assets/icons/icons8-whatsapp-48.png" alt="whatsappIcon"></a>
-            <a href=""> <img class="fbIcon" src="../assets/icons/icons8-facebook-48.png" alt="facebook"></a>
-            <a href=""><img class="ttIcon" src="../assets/icons/icons8-tiktok-24.png" alt="tiktok">
-        </div></a>
-        <p>All rights reserved Rina&Suela</p>
-        <div class="dFlex emails">
-            <p>RINASUELA@GMAIL.COM</p>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><img src="../assets/icons/icons8-whatsapp-48.png" alt="WhatsApp"></a>
+                    <a href="#"><img src="../assets/icons/icons8-facebook-48.png" alt="Facebook"></a>
+                    <a href="#"><img src="../assets/icons/icons8-tiktok-24.png" alt="Tiktok"></a>
+                </div>
+            </div>
+
+            <div class="footer-section center">
+                <h3>Rina & Suela</h3>
+                <p>All rights reserved © 2025</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <span>RINASUELA@GMAIL.COM</span></p>
+            </div>
+
         </div>
     </footer>
+
+
+    <script>
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^.{6,}$/;
+
+        function showError(inputId, errorId, message) {
+            const input = document.getElementById(inputId);
+            const error = document.getElementById(errorId);
+
+            input.style.border = "1px solid red";
+            error.textContent = message;
+        }
+
+        function clearError(inputId, errorId) {
+            const input = document.getElementById(inputId);
+            const error = document.getElementById(errorId);
+
+            input.style.border = "1px solid green";
+            error.textContent = "";
+        }
+
+        const form = document.getElementById("logInForm");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("emailLogin").value.trim();
+            const password = document.getElementById("passwordLogin").value.trim();
+
+            let valid = true;
+
+            if (!emailRegex.test(email)) {
+                showError("emailLogin", "emailLoginError", "Email is not valid.");
+                valid = false;
+            } else {
+                clearError("emailLogin", "emailLoginError");
+            }
+
+            if (!passwordRegex.test(password)) {
+                showError("passwordLogin", "passwordLoginError", "Password must be at least 6 characters.");
+                valid = false;
+            } else {
+                clearError("passwordLogin", "passwordLoginError");
+            }
+
+            if (valid) {
+                const msg = document.createElement("p");
+                msg.className = "successMsg";
+                msg.textContent = "You are logged in";
+                form.appendChild(msg);
+
+            }
+        });
+    </script>
+
 </body>
 
 </html>

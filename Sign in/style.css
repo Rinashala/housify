@@ -1,13 +1,13 @@
 body {
-    height: 100vh;
-    overflow-y: hidden;
+    height: auto;
 }
 
 main {
     display: grid;
     justify-content: center;
     align-items: center;
-    height: 85vh;
+    height: auto;
+    min-height: calc(100vh - 150px);
 }
 
 form {
@@ -37,6 +37,7 @@ form input {
 
 form a {
     color: #1f140f;
+    font-weight: bold;
 }
 
 .contactUsButton {

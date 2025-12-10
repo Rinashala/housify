@@ -15,9 +15,17 @@ a {
     text-decoration: none;
 }
 
+.justifyCenter {
+    justify-content: center;
+}
+
 .dFlex {
     display: flex;
     align-items: center;
+}
+
+.fSize12px {
+    font-size: 12px;
 }
 
 header {
@@ -26,7 +34,6 @@ header {
     border-radius: 16px;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 header div {
@@ -50,6 +57,7 @@ header div {
 }
 
 footer {
+    text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,15 +65,61 @@ footer {
     padding: 0 10px;
 }
 
-footer img {
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 0;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.social-links a img {
     width: 30px;
+    margin-right: 10px;
+    transition: transform 0.2s ease;
 }
 
-.whpIcon {
-    width: 35px;
-    height: 33px;
+.social-links a img:hover {
+    transform: scale(1.2);
 }
 
-footer .emails {
-    gap: 0.2rem;
+.footer .center {
+    text-align: center;
+}
+
+.footer-section span {
+    color: #7cd8ff;
+    font-weight: bold;
+}
+
+.contactUsButton {
+    font-size: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links a img {
+        margin: 0 8px;
+    }
 }
