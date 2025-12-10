@@ -1,0 +1,86 @@
+body {
+    height: auto;
+    overflow-y: hidden;
+}
+
+
+main {
+    height: auto;
+    min-height: calc(100vh - 230px);
+    width: 100%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.optionsContainer {
+    gap: 1rem;
+}
+
+.option-buttons {}
+
+.option-buttons button {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: 2px solid #b87554;
+    background: transparent;
+    transition: 0.3s ease;
+}
+
+.option-buttons button.active,
+.option-buttons button:hover {
+    background-color: #b87554;
+    color: white;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.search-wrapper input {
+    width: 380px;
+    padding: 12px 45px 12px 20px;
+    border-radius: 25px;
+    border: 2px solid #b87554;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-wrapper::after {
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    font-size: 18px;
+    color: #b87554;
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+    margin-top: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+}
+
+.slider img {
+    width: 380px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
