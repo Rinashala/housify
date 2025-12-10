@@ -1,0 +1,68 @@
+body {
+    height: auto;
+}
+
+main {
+    height: auto;
+    min-height: calc(100vh - 180px);
+    padding: 0 4rem;
+    text-align: start;
+
+}
+
+.AboutUsContainer {
+    display: grid;
+    gap: 1rem;
+}
+
+main img {
+    width: 700px;
+    border-radius: 20px;
+}
+
+.textareaWrapper {
+    position: relative;
+    width: 500px;
+    height: 220px;
+    border: 3px solid black;
+    border-radius: 30px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: white;
+}
+
+.textareaWrapper textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 14px;
+    background: transparent;
+    color: #000;
+    font-family: inherit;
+}
+
+.sendBtn {
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 20px;
+    background: #9b5839;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.sendBtn:hover {
+    transform: scale(1.05);
+}
+
+span {
+    color: #9b5839;
+}

@@ -62,57 +62,7 @@
 
 
     <script>
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const passwordRegex = /^.{6,}$/;
 
-        function showError(inputId, errorId, message) {
-            const input = document.getElementById(inputId);
-            const error = document.getElementById(errorId);
-
-            input.style.border = "1px solid red";
-            error.textContent = message;
-        }
-
-        function clearError(inputId, errorId) {
-            const input = document.getElementById(inputId);
-            const error = document.getElementById(errorId);
-
-            input.style.border = "1px solid green";
-            error.textContent = "";
-        }
-
-        const form = document.getElementById("logInForm");
-
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const email = document.getElementById("emailLogin").value.trim();
-            const password = document.getElementById("passwordLogin").value.trim();
-
-            let valid = true;
-
-            if (!emailRegex.test(email)) {
-                showError("emailLogin", "emailLoginError", "Email is not valid.");
-                valid = false;
-            } else {
-                clearError("emailLogin", "emailLoginError");
-            }
-
-            if (!passwordRegex.test(password)) {
-                showError("passwordLogin", "passwordLoginError", "Password must be at least 6 characters.");
-                valid = false;
-            } else {
-                clearError("passwordLogin", "passwordLoginError");
-            }
-
-            if (valid) {
-                const msg = document.createElement("p");
-                msg.className = "successMsg";
-                msg.textContent = "You are logged in";
-                form.appendChild(msg);
-
-            }
-        });
     </script>
 
 </body>

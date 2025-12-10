@@ -1,6 +1,5 @@
 body {
     height: auto;
-    overflow-y: hidden;
 }
 
 
@@ -22,8 +21,6 @@ main h1 {
 .optionsContainer {
     gap: 1rem;
 }
-
-.option-buttons {}
 
 .option-buttons button {
     padding: 10px 25px;
