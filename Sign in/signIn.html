@@ -26,9 +26,11 @@
             <h1 class="">SIGN IN</h1>
 
             <input id="fullName" type="text" placeholder="Your full name..">
+            <p id="nameError"></p>
             <input id="emailSignIn" type="email" placeholder="Email">
+            <p id="emailError"></p>
             <input id="passwordSignIn" type="password" placeholder="Password">
-
+            <p id="passwordError"></p>
             <p class="fSize12px">Already have an account yet? <span><a href="../Log in/logIn.html">Log in
                         here.</a></span></p>
             <button type="submit" class="customButton">SIGN IN</button>
@@ -59,6 +61,63 @@
 
         </div>
     </footer>
+    <script>
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/;
+
+        const emailInput = document.getElementById("emailSignIn");
+        const passwordInput = document.getElementById("passwordSignIn");
+        const form = document.getElementById("signInForm");
+        const fullNameInput = document.getElementById("fullName");
+
+
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+        emailInput.addEventListener("input", () => {
+            emailError.textContent = "";
+        });
+
+        passwordInput.addEventListener("input", () => {
+            passwordError.textContent = "";
+        });
+        fullNameInput.addEventListener("input", () => {
+            passwordError.textContent = "";
+        });
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            let email = emailInput.value.trim();
+            let password = passwordInput.value.trim();
+            let valid = true;
+
+            if (!emailRegex.test(email)) {
+                emailError.innerHTML = "Please enter a valid email address.";
+                emailError.style.color = 'red'
+                emailError.style.fontSize = '10px'
+
+                valid = false;
+            } else {
+                emailError.innerHTML = "";
+            }
+
+            if (!passwordRegex.test(password)) {
+                passwordError.innerHTML =
+                    "Your password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.";
+                passwordError.style.color = 'red'
+                passwordError.style.fontSize = '10px'
+
+
+                valid = false;
+            } else {
+                passwordError.innerHTML = "";
+            }
+
+            if (valid) {
+            }
+        });
+
+    </script>
 </body>
 
 </html>
