@@ -29,6 +29,12 @@ form {
     gap: 0.5rem;
 }
 
+.logo {
+    width: 60px;
+    justify-self: center;
+    padding-bottom: 0.7rem;
+}
+
 form input {
     padding: 0.5rem;
     border-radius: 15px;
