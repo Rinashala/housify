@@ -137,85 +137,8 @@
         });
     </script>
 
-    <!-- <script>
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/;
-        const nameRegex = /^[a-zA-Z0-9._-]{3,20}$/;
-
-        const emailInput = document.getElementById("emailSignIn");
-        const passwordInput = document.getElementById("passwordSignIn");
-        const form = document.getElementById("signInForm");
-        const fullNameInput = document.getElementById("fullName");
-        const confirm = document.getElementById("ConfirmPasswordSignIn");
-
-        const formSuccess = document.getElementById('formSuccess');
-        const emailError = document.getElementById("emailError");
-        const passwordError = document.getElementById("passwordError");
-        const ConfirmPasswordError = document.getElementById("ConfirmPasswordError");
-        const nameError = document.getElementById("nameError")
-        emailInput.addEventListener("input", () => {
-            emailError.textContent = "";
-        });
-
-        passwordInput.addEventListener("input", () => {
-            passwordError.textContent = "";
-        });
-        fullNameInput.addEventListener("input", () => {
-            nameError.textContent = "";
-        });
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            let email = emailInput.value.trim();
-            let password = passwordInput.value.trim();
-            let name = fullNameInput.value.trim();
-            let valid = true;
-
-            if (!emailRegex.test(email)) {
-                emailError.innerHTML = "Please enter a valid email address.";
-                emailError.style.color = 'red'
-                emailError.style.fontSize = '10px'
-
-                valid = false;
-            } else {
-                emailError.innerHTML = "";
-            }
-
-            if (!passwordRegex.test(password)) {
-                passwordError.innerHTML =
-                    "Your password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.";
-                passwordError.style.color = 'red'
-                passwordError.style.fontSize = '10px'
-                valid = false;
-            } else {
-                passwordError.innerHTML = "";
-            }
-
-            if (valid) {
-            }
-            if (!nameRegex.test(name)) {
-                nameError.innerHTML =
-                    "Your username must be at least 3 characters";
-                nameError.style.color = 'red'
-                nameError.style.fontSize = '10px'
-                valid = false;
-            } else {
-                nameError.innerHTML = "";
-            }
-
-            if (valid) {
-            }
-            if (password.value !== confirm.value) {
-                ConfirmPasswordError.textContent = 'Passwords do not match';
-                ConfirmPasswordError.style.color = 'red'
-                ConfirmPasswordError.style.fontSize = '10px'
-                valid = false;
-            }
-        });
 
 
-    </script> -->
 </body>
 
 </html>
