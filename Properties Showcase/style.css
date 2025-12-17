@@ -50,18 +50,6 @@ main h1 {
     font-size: 15px;
 }
 
-.search-wrapper {
-    position: relative;
-}
-
-.search-wrapper::after {
-    position: absolute;
-    right: 18px;
-    top: 10px;
-    font-size: 18px;
-    color: #b87554;
-}
-
 .slider {
     display: flex;
     gap: 20px;
