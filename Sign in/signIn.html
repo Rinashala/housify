@@ -65,6 +65,79 @@
         </div>
     </footer>
     <script>
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/;
+        const nameRegex = /^[a-zA-Z0-9._-]{3,20}$/;
+
+        const form = document.getElementById("signInForm");
+
+        const fullNameInput = document.getElementById("fullName");
+        const emailInput = document.getElementById("emailSignIn");
+        const passwordInput = document.getElementById("passwordSignIn");
+        const confirmPasswordInput = document.getElementById("ConfirmPasswordSignIn");
+
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+        const confirmPasswordError = document.getElementById("ConfirmPasswordError");
+
+        fullNameInput.addEventListener("input", () => nameError.textContent = "");
+        emailInput.addEventListener("input", () => emailError.textContent = "");
+        passwordInput.addEventListener("input", () => passwordError.textContent = "");
+        confirmPasswordInput.addEventListener("input", () => confirmPasswordError.textContent = "");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let valid = true;
+
+            const name = fullNameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+            const confirmPassword = confirmPasswordInput.value.trim();
+
+            if (!nameRegex.test(name)) {
+                nameError.textContent = "Your username must be at least 3 characters.";
+                nameError.style.color = "red";
+                nameError.style.fontSize = "10px";
+                valid = false;
+            } else {
+                nameError.textContent = "";
+            }
+
+            if (!emailRegex.test(email)) {
+                emailError.textContent = "Please enter a valid email address.";
+                emailError.style.color = "red";
+                emailError.style.fontSize = "10px";
+                valid = false;
+            } else {
+                emailError.textContent = "";
+            }
+            if (!passwordRegex.test(password)) {
+                passwordError.textContent =
+                    "Password must be at least 8 characters and include uppercase, lowercase, number & special character.";
+                passwordError.style.color = "red";
+                passwordError.style.fontSize = "10px";
+                valid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+
+            if (password !== confirmPassword) {
+                confirmPasswordError.textContent = "Passwords do not match.";
+                confirmPasswordError.style.color = "red";
+                confirmPasswordError.style.fontSize = "10px";
+                valid = false;
+            } else {
+                confirmPasswordError.textContent = "";
+            }
+
+            if (valid) {
+                window.location.href = "../Log in/logIn.html";
+            }
+        });
+    </script>
+
+    <!-- <script>
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/;
@@ -142,10 +215,7 @@
         });
 
 
-    </script>
+    </script> -->
 </body>
 
 </html>
-
-
-
