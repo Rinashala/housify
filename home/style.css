@@ -85,7 +85,7 @@ main h1 {
     height: 98vh;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
 
     .mainContent {
         flex-direction: column;
