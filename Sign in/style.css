@@ -10,11 +10,6 @@ main {
     min-height: calc(100vh - 150px);
 }
 
-form {
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
 header .dFlex {
     display: none;
 }
