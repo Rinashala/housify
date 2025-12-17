@@ -1,3 +1,15 @@
+Conversation opened. 1 unread message. 
+
+Skip to content
+Using Gmail with screen readers
+1 of 853
+html nsign in
+Inbox
+
+Rina Shala <rinashalaa777@gmail.com>
+00:40 (10 hours ago)
+to me
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,9 +43,12 @@
             <p id="emailError"></p>
             <input id="passwordSignIn" type="password" placeholder="Password">
             <p id="passwordError"></p>
+            <input id="ConfirmPasswordSignIn" type="password" placeholder="Confirm password">
+            <p id="ConfirmPasswordError"></p>
             <p class="fSize12px">Already have an account yet? <span><a href="../Log in/logIn.html">Log in
                         here.</a></span></p>
             <button type="submit" class="customButton">SIGN IN</button>
+            <div id="formSuccess" class="success" role="status" aria-live="polite"></div>
         </form>
 
     </main>
@@ -65,15 +80,19 @@
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/;
+        const nameRegex = /^[a-zA-Z0-9._-]{3,20}$/;
 
         const emailInput = document.getElementById("emailSignIn");
         const passwordInput = document.getElementById("passwordSignIn");
         const form = document.getElementById("signInForm");
         const fullNameInput = document.getElementById("fullName");
+        const confirm = document.getElementById("ConfirmPasswordSignIn");
 
-
+        const formSuccess = document.getElementById('formSuccess');
         const emailError = document.getElementById("emailError");
         const passwordError = document.getElementById("passwordError");
+        const ConfirmPasswordError = document.getElementById("ConfirmPasswordError");
+        const nameError = document.getElementById("nameError")
         emailInput.addEventListener("input", () => {
             emailError.textContent = "";
         });
@@ -82,13 +101,14 @@
             passwordError.textContent = "";
         });
         fullNameInput.addEventListener("input", () => {
-            passwordError.textContent = "";
+            nameError.textContent = "";
         });
         form.addEventListener("submit", (e) => {
             e.preventDefault();
 
             let email = emailInput.value.trim();
             let password = passwordInput.value.trim();
+            let name = fullNameInput.value.trim();
             let valid = true;
 
             if (!emailRegex.test(email)) {
@@ -106,8 +126,6 @@
                     "Your password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.";
                 passwordError.style.color = 'red'
                 passwordError.style.fontSize = '10px'
-
-
                 valid = false;
             } else {
                 passwordError.innerHTML = "";
@@ -115,9 +133,31 @@
 
             if (valid) {
             }
+            if (!nameRegex.test(name)) {
+                nameError.innerHTML =
+                    "Your username must be at least 3 characters";
+                nameError.style.color = 'red'
+                nameError.style.fontSize = '10px'
+                valid = false;
+            } else {
+                nameError.innerHTML = "";
+            }
+
+            if (valid) {
+            }
+            if (password.value !== confirm.value) {
+                ConfirmPasswordError.textContent = 'Passwords do not match';
+                ConfirmPasswordError.style.color = 'red'
+                ConfirmPasswordError.style.fontSize = '10px'
+                valid = false;
+            }
         });
+
 
     </script>
 </body>
 
 </html>
+
+
+
