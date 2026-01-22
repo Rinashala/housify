@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+// Kontroll session: nëse nuk është loguar, ridrejtim te logIn
+if(!isset($_SESSION['username'])){
+    header("Location: ../Log in/logIn.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,20 +16,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="./style.css">
-    <title>Properties Showcse</title>
-
+    <title>Properties Showcase</title>
 </head>
 
 <body>
     <header class="dFlex">
-        <a href="../home/home.html">
+        <a href="../home/home.php">
             <h5>HOUSIFY</h5>
         </a>
         <div class="dFlex">
             <a href="../about us/aboutus.html">About us</a>
-            <a href="../Properties Showcase/propertiesShowcase.html">Properties</a>
-            <a href="../Log in/logIn.html">Log In</a>
-
+            <a href="./propertiesShowcase.php">Properties</a>
+            <a href="../Log in/logIn.php">Log In</a>
+            <a href="../Log in/logout.php" class="customButton">Logout</a>
         </div>
         <button class="customButton">CONTACT US</button>
     </header>
@@ -36,14 +45,13 @@
                     <ol>
                         <li>Modern design and high-quality finishes</li>
                         <li>Large windows for natural light</li>
-                        <li> Private parking space</li>
+                        <li>Private parking space</li>
                         <li>Quiet and family-friendly neighborhood</li>
                         <li>Close to schools, shops, and main roads</li>
                     </ol>
                 </div>
             </div>
         </div>
-
     </main>
     <footer class="footer">
         <div class="footer-container">

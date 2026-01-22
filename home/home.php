@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['username'])){
+    header("Location: ../Log in/logIn.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,15 +24,14 @@
         <div class="dFlex">
             <a href="../about us/aboutus.html">About us</a>
             <a href="../Properties Showcase/propertiesShowcase.html">Properties</a>
-            <a href="../Log in/logIn.html">Log In</a>
-
+            <a href="../Log in/logIn.php">Log In</a>
         </div>
         <button class="customButton">CONTACT US</button>
     </header>
     <main>
 
         <div class="welcomeCard">
-            <h1>WELCOME USER!</h1>
+            <h1>WELCOME <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
             <div class="dFlex mainContent">
                 <div>
                     <p><a href="../Properties Showcase/propertiesShowcase.html">GO TO PROPERTY SHOWCASE ></a></p>
