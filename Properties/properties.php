@@ -20,18 +20,8 @@ if(!isset($_SESSION['username'])){
 </head>
 
 <body>
-    <header class="dFlex">
-        <a href="../home/home.php">
-            <h5>HOUSIFY</h5>
-        </a>
-        <div class="dFlex">
-            <a href="../about us/aboutus.html">About us</a>
-            <a href="./propertiesShowcase.php">Properties</a>
-            <a href="../Log in/logIn.php">Log In</a>
-            <a href="../Log in/logout.php" class="customButton">Logout</a>
-        </div>
-        <button class="customButton">CONTACT US</button>
-    </header>
+<?php include "../header.php"; ?>
+
     <main>
         <h1 class="">PROPERTY SHOWCASE</h1>
         <div class="propertyDscpCard">
@@ -53,30 +43,8 @@ if(!isset($_SESSION['username'])){
             </div>
         </div>
     </main>
-    <footer class="footer">
-        <div class="footer-container">
+<?php include "../footer.php"; ?>
 
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#"><img src="../assets/icons/icons8-whatsapp-48.png" alt="WhatsApp"></a>
-                    <a href="#"><img src="../assets/icons/icons8-facebook-48.png" alt="Facebook"></a>
-                    <a href="#"><img src="../assets/icons/icons8-tiktok-24.png" alt="Tiktok"></a>
-                </div>
-            </div>
-
-            <div class="footer-section center">
-                <h3>Rina & Suela</h3>
-                <p>All rights reserved © 2025</p>
-            </div>
-
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: <span>RINASUELA@GMAIL.COM</span></p>
-            </div>
-
-        </div>
-    </footer>
 </body>
 
 </html>

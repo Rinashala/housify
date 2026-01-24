@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username'])) {
-    header("Location: ../Log in/logIn.php");
-    exit;
-}
+// if (!isset($_SESSION['username'])) {
+//     header("Location: ../Log in/logIn.php");
+//     exit;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/housify/includes/header.php'; ?>
+<?php include "../header.php"; ?>
 
 <main>
     <div class="welcomeCard">
@@ -60,11 +60,28 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <div class="secondPart">
-        <!-- pjesa tjetër e faqes -->
-    </div>
+  <div class="secondPart">
+            <div class="dscpCardTwo">
+                <div>
+                    <h1>DISCOVER YOUR PERFECT</h1>
+                    <h1>PROPERTY MATCH </h1>
+                </div>
+                <p>WE OFFER EXCEPTIONAL REAL ESTATE SERVICES DESIGNED TO MAKE YOUR JOURNEY SIMPLE AND REWARDING. OUR
+                    TEAM HELPS YOU FIND, BUY, OR SELL YOUR DREAM PROPERTY WITH TRUST AND CARE. EXPERIENCE
+                    PROFESSIONALISM, PASSION, AND RESULTS IN EVERY STEP.</p>
+            </div>
+            <div class="learnMoreCard">
+                <img class="imgHeight80vh" src="../assets/img/4428568b2344c517469b2f3fd6fba7a5.jpg" alt="">
+                <div>
+                    <img class="imgHeight40vh" src="../assets/img/2.jpg" alt="">
+                    <img class="imgHeight40vh" src="../assets/img/3.jpg" alt="">
+                </div>
+                <img class="imgHeight80vh dnone" src="../assets/img/4.jpg" alt="">
+            </div>
+        </div>    </div>
 </main>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/housify/includes/footer.php'; ?>
+<?php include "../footer.php"; ?>
 
 </body>
 </html>

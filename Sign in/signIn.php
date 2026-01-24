@@ -25,15 +25,8 @@ if (isset($_SESSION['errors'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="dFlex">
-    <h5>HOUSIFY</h5>
-    <div class="dFlex">
-        <a href="">About us</a>
-        <a href="">Properties</a>
-        <a href="">Services</a>
-    </div>
-    <button class="customButton">CONTACT US</button>
-</header>
+<?php include "../header.php"; ?>
+
 <main>
     <form id="signInForm" action="signInValidate.php" method="POST">
         <img class="logo" src="../assets/img/logo housify.png" alt="logo">
@@ -56,25 +49,7 @@ if (isset($_SESSION['errors'])) {
         <div id="formSuccess" class="success" role="status" aria-live="polite"></div>
     </form>
 </main>
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3>Follow Us</h3>
-            <div class="social-links">
-                <a href="#"><img src="../assets/icons/icons8-whatsapp-48.png" alt="WhatsApp"></a>
-                <a href="#"><img src="../assets/icons/icons8-facebook-48.png" alt="Facebook"></a>
-                <a href="#"><img src="../assets/icons/icons8-tiktok-24.png" alt="Tiktok"></a>
-            </div>
-        </div>
-        <div class="footer-section center">
-            <h3>Rina & Suela</h3>
-            <p>All rights reserved © 2025</p>
-        </div>
-        <div class="footer-section">
-            <h3>Contact Us</h3>
-            <p>Email: <span>RINASUELA@GMAIL.COM</span></p>
-        </div>
-    </div>
-</footer>
+<?php include "../footer.php"; ?>
+
 </body>
 </html>
