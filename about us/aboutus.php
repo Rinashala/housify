@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +47,29 @@ session_start();
                     </div>
                 </form>
 
-                <?php
-                if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                    echo "<p style='margin-top:10px;'>Message sent successfully ✔</p>";
-                }
-                ?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+include_once "../includes/db.php";
+    $db = new Database();
+    $conn = $db->getConnection();
+
+    $message = trim($_POST['message']);
+
+    if (!empty($message)) {
+        $stmt = $conn->prepare(
+            "INSERT INTO contact_messages (message) VALUES (:message)"
+        );
+        $stmt->bindParam(":message", $message);
+        $stmt->execute();
+
+        echo "<p style='margin-top:10px;color:green;'>Message sent successfully ✔</p>";
+    } else {
+        echo "<p style='margin-top:10px;color:red;'>Message cannot be empty!</p>";
+    }
+}
+?>
+
             </div>
 
             <img src="" alt="">

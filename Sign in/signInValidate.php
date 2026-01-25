@@ -1,56 +1,39 @@
 <?php
 session_start();
+include_once "../includes/db.php";
+include_once "../includes/users.php";
 
 if (isset($_POST['signInBtn'])) {
 
-    $fullName = trim($_POST['fullName']);
+    $db = new Database();
+    $conn = $db->getConnection();
+    $user = new User($conn);
+
+    $username = trim($_POST['fullName']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
-    $confirmPassword = trim($_POST['confirmPassword']);
-
-    // Ruaj vlerat e vjetra për të mbushur form-in përsëri
-    $_SESSION['old'] = [
-        'fullName' => $fullName,
-        'email' => $email
-    ];
+    $confirm = trim($_POST['confirmPassword']);
 
     $errors = [];
 
-    // RegEx nga JS versioni
-    $nameRegex = "/^[a-zA-Z0-9._-]{3,20}$/";
-    $emailRegex = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/";
-    $passwordRegex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/";
-
-    // Validation
-    if (!preg_match($nameRegex, $fullName)) {
-        $errors['fullName'] = "Your username must be at least 3 characters.";
-    }
-
-    if (!preg_match($emailRegex, $email)) {
-        $errors['email'] = "Please enter a valid email address.";
-    }
-
-    if (!preg_match($passwordRegex, $password)) {
-        $errors['password'] = "Password must be at least 8 characters and include uppercase, lowercase, number & special character.";
-    }
-
-    if ($password !== $confirmPassword) {
+    if ($password !== $confirm) {
         $errors['confirmPassword'] = "Passwords do not match.";
+    }
+
+    if ($user->emailExists($email)) {
+        $errors['email'] = "Email already registered!";
     }
 
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
+        $_SESSION['old'] = compact("username", "email");
         header("Location: signIn.php");
         exit;
     }
 
-    // Nëse gjithçka është e saktë
-    $_SESSION['username'] = $fullName;
-    unset($_SESSION['old']);
-    header("Location: home.php");
-    exit;
+    $user->register($username, $email, $password);
 
-} else {
-    header("Location: signIn.php");
+    $_SESSION['username'] = $username;
+    header("Location: ../home/home.php");
     exit;
 }
