@@ -3,16 +3,15 @@ session_start();
 
 // Nëse përdoruesi është i loguar, ridrejtim në home
 if (isset($_SESSION['username'])) {
-    header("Location: home.php");
+    header("Location: ../home/home.php");
     exit;
 }
 
-// Merr gabimet nga validate
-$errors = [];
-if (isset($_SESSION['errors'])) {
-    $errors = $_SESSION['errors'];
-    unset($_SESSION['errors']);
-}
+// Merr gabimet dhe old data nga validate
+$errors = $_SESSION['errors'] ?? [];
+$old = $_SESSION['old'] ?? [];
+
+unset($_SESSION['errors'], $_SESSION['old']);
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +24,7 @@ if (isset($_SESSION['errors'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <?php include "../header.php"; ?>
 
 <main>
@@ -32,23 +32,57 @@ if (isset($_SESSION['errors'])) {
         <img class="logo" src="../assets/img/logo housify.png" alt="logo">
         <h1>SIGN IN</h1>
 
-        <input id="fullName" type="text" name="fullName" placeholder="Your full name.." value="<?php echo isset($_SESSION['old']['fullName']) ? $_SESSION['old']['fullName'] : ''; ?>">
-        <p id="nameError" class="error"><?php echo isset($errors['fullName']) ? $errors['fullName'] : ''; ?></p>
+        <!-- USERNAME -->
+        <input 
+            type="text" 
+            name="username" 
+            placeholder="Your full name.." 
+            required
+            value="<?php echo htmlspecialchars($old['username'] ?? ''); ?>"
+        >
+        <p class="error"><?php echo $errors['username'] ?? ''; ?></p>
 
-        <input id="emailSignIn" type="email" name="email" placeholder="Email" value="<?php echo isset($_SESSION['old']['email']) ? $_SESSION['old']['email'] : ''; ?>">
-        <p id="emailError" class="error"><?php echo isset($errors['email']) ? $errors['email'] : ''; ?></p>
+        <!-- EMAIL -->
+        <input 
+            type="email" 
+            name="email" 
+            placeholder="Email" 
+            required
+            value="<?php echo htmlspecialchars($old['email'] ?? ''); ?>"
+        >
+        <p class="error"><?php echo $errors['email'] ?? ''; ?></p>
 
-        <input id="passwordSignIn" type="password" name="password" placeholder="Password">
-        <p id="passwordError" class="error"><?php echo isset($errors['password']) ? $errors['password'] : ''; ?></p>
+        <!-- PASSWORD -->
+        <input 
+            type="password" 
+            name="password" 
+            placeholder="Password" 
+            minlength="8"
+            required
+        >
+        <p class="error"><?php echo $errors['password'] ?? ''; ?></p>
 
-        <input id="ConfirmPasswordSignIn" type="password" name="confirmPassword" placeholder="Confirm password">
-        <p id="ConfirmPasswordError" class="error"><?php echo isset($errors['confirmPassword']) ? $errors['confirmPassword'] : ''; ?></p>
+        <!-- CONFIRM PASSWORD -->
+        <input 
+            type="password" 
+            name="confirmPassword" 
+            placeholder="Confirm password" 
+            minlength="8"
+            required
+        >
+        <p class="error"><?php echo $errors['confirmPassword'] ?? ''; ?></p>
 
-        <p class="fSize12px">Already have an account? <span><a href="../Log in/logIn.php">Log in here.</a></span></p>
-        <button type="submit" name="signInBtn" class="customButton">SIGN IN</button>
-        <div id="formSuccess" class="success" role="status" aria-live="polite"></div>
+        <p class="fSize12px">
+            Already have an account?
+            <span><a href="../Log in/logIn.php">Log in here.</a></span>
+        </p>
+
+        <button type="submit" name="signInBtn" class="customButton">
+            SIGN IN
+        </button>
     </form>
 </main>
+
 <?php include "../footer.php"; ?>
 
 </body>

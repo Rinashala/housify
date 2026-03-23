@@ -9,11 +9,12 @@ if (isset($_POST['signInBtn'])) {
     $conn = $db->getConnection();
     $user = new User($conn);
 
-    $username = trim($_POST['fullName']);
+    $username = trim($_POST['username']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
     $confirm = trim($_POST['confirmPassword']);
-
+ 
+    
     $errors = [];
 
     if ($password !== $confirm) {
@@ -32,8 +33,21 @@ if (isset($_POST['signInBtn'])) {
     }
 
     $user->register($username, $email, $password);
+if (empty($username)) {
+    $errors['username'] = "Username is required.";
+}
+
+if (empty($email)) {
+    $errors['email'] = "Email is required.";
+}
+
+if (strlen($password) < 8) {
+    $errors['password'] = "Password must be at least 8 characters.";
+}
 
     $_SESSION['username'] = $username;
     header("Location: ../home/home.php");
     exit;
+
 }
+

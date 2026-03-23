@@ -7,19 +7,21 @@ class User {
         $this->conn = $db;
     }
 
-    public function register($username, $email, $password) {
-        $query = "INSERT INTO {$this->table} (username, email, password)
-                  VALUES (:username, :email, :password)";
+public function register($username, $email, $password, $role = 'user') {
+    $query = "INSERT INTO users (username, email, password, role)
+              VALUES (:username, :email, :password, :role)";
 
-        $stmt = $this->conn->prepare($query);
-        $hashed = password_hash($password, PASSWORD_DEFAULT);
+    $stmt = $this->conn->prepare($query);
+    $hashed = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":password", $hashed);
+    $stmt->bindParam(":username", $username);
+    $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":password", $hashed);
+    $stmt->bindParam(":role", $role);
 
-        return $stmt->execute();
-    }
+    return $stmt->execute();
+}
+
 
     public function login($email, $password) {
         $query = "SELECT * FROM {$this->table} WHERE email = :email";
